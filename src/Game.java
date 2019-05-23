@@ -33,20 +33,21 @@ public class Game
     }
   }
   
-  public void handleKeyPress()
-  {
+  public void handleKeyPress() {
+    int key = grid.checkLastKeyPressed();
+
   }
   
-  public void populateRightEdge()
-  {
+  public void populateRightEdge() {
+
   }
   
-  public void scrollLeft()
-  {
+  public void scrollLeft() {
+
   }
   
-  public void handleCollision(Location loc)
-  {
+  public void handleCollision(Location loc) {
+
   }
   
   public int getScore()
