@@ -2,6 +2,7 @@ public class Game
 {
   private Grid grid;
   private int userRow;
+  private int userCol;
   private int msElapsed;
   private int timesGet;
   private int timesAvoid;
@@ -10,6 +11,7 @@ public class Game
   {
     grid = new Grid(5, 10);
     userRow = 0;
+    userCol = 0;
     msElapsed = 0;
     timesGet = 0;
     timesAvoid = 0;
@@ -36,6 +38,25 @@ public class Game
   public void handleKeyPress() {
     int key = grid.checkLastKeyPressed();
 
+    //Up Arrow
+    if(key == 38){
+      userRow -= 1;
+    }
+
+    //Down Arrow
+    if(key == 40){
+      userRow += 1;
+    }
+
+    //Left Arrow
+    if(key == 37){
+      userCol -= 1;
+    }
+
+    //Right Arrow
+    if(key == 39){
+      userCol += 1;
+    }
   }
   
   public void populateRightEdge() {
