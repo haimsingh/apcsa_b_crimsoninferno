@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/apcsa_b_crimsoninferno.iml" filepath="$PROJECT_DIR$/.idea/apcsa_b_crimsoninferno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apcsa_b_crimsoninferno.iml" filepath="$PROJECT_DIR$/apcsa_b_crimsoninferno.iml" />
     </modules>
   </component>
 </project>
