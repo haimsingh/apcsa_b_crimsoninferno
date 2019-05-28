@@ -38,25 +38,24 @@ public class Game
   public void handleKeyPress() {
     int key = grid.checkLastKeyPressed();
 
-    //Up Arrow
-    if(key == 38){
-      userRow -= 1;
+    switch(key){
+      case 38 :
+        userRow--;
+        break;
+
+       case 40 :
+        userRow++;
+        break;
+
+      case 37 :
+        userCol--;
+        break;
+
+      case 39 :
+        userCol++;
+        break;
     }
 
-    //Down Arrow
-    if(key == 40){
-      userRow += 1;
-    }
-
-    //Left Arrow
-    if(key == 37){
-      userCol -= 1;
-    }
-
-    //Right Arrow
-    if(key == 39){
-      userCol += 1;
-    }
   }
   
   public void populateRightEdge() {
