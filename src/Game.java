@@ -9,7 +9,7 @@ public class Game
   
   public Game()
   {
-    grid = new Grid(5, 10);
+      grid = new Grid(20, 20);
     userRow = 0;
     userCol = 0;
     msElapsed = 0;
@@ -27,8 +27,8 @@ public class Game
       handleKeyPress();
       if (msElapsed % 300 == 0)
       {
-        scrollLeft();
-        populateRightEdge();
+//        scrollLeft();
+//        populateRightEdge();
       }
       updateTitle();
       msElapsed += 100;
@@ -58,14 +58,14 @@ public class Game
       userCol += 1;
     }
   }
-  
-  public void populateRightEdge() {
 
-  }
-  
-  public void scrollLeft() {
-
-  }
+//  public void populateRightEdge() {
+//
+//  }
+//
+//  public void scrollLeft() {
+//
+//  }
   
   public void handleCollision(Location loc) {
 
