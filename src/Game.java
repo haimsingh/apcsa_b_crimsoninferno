@@ -9,16 +9,15 @@ public class Game
 
     public Game()
     {
-        grid = new Grid(5, 10);
+        grid = new Grid(100, 100);
         userRow = 0;
         userCol = 0;
         msElapsed = 0;
         timesGet = 0;
         timesAvoid = 0;
         updateTitle();
-        grid.setImage(new Location(userRow, 0), "user.gif");
+        grid.setImage(new Location(userRow, 0), "catch.png");
     }
-
     public void play()
     {
         while (!isGameOver())
@@ -27,14 +26,13 @@ public class Game
             handleKeyPress();
             if (msElapsed % 300 == 0)
             {
-                scrollLeft();
-                populateRightEdge();
+//        scrollLeft();
+//        populateRightEdge();
             }
             updateTitle();
             msElapsed += 100;
         }
     }
-
     public void handleKeyPress() {
         int key = grid.checkLastKeyPressed();
 
@@ -42,57 +40,46 @@ public class Game
             case 38 :
                 userRow--;
                 break;
-
             case 40 :
                 userRow++;
                 break;
-
             case 37 :
                 userCol--;
                 break;
-
             case 39 :
                 userCol++;
                 break;
         }
-
     }
-
-    public void populateRightEdge() {
-
-    }
-
-    public void scrollLeft() {
-
-    }
-
+    //  public void populateRightEdge() {
+//
+//  }
+//
+//  public void scrollLeft() {
+//
+//  }
     public void handleCollision(Location loc) {
-
     }
-
     public int getScore()
     {
         return 0;
     }
-
     public void updateTitle()
     {
         grid.setTitle("Game:  " + getScore());
     }
-
     public boolean isGameOver()
     {
         return false;
     }
-
     public static void test()
     {
         Game game = new Game();
         game.play();
     }
-
     public static void main(String[] args)
     {
         test();
     }
 }
+
