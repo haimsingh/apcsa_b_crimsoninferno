@@ -59,6 +59,14 @@ public class Game
 //
 //  }
     public void handleCollision(Location loc) {
+        if(userCol == loc.getCol() && userRow == loc.getRow()){
+            if(grid.getImage(loc).equals("enemy.gif")){
+
+            }
+
+
+        }
+
     }
     public int getScore()
     {
