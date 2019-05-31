@@ -6,17 +6,18 @@ public class Game
     private int msElapsed;
     private int timesGet;
     private int timesAvoid;
+    private String bgPic = ".\\img\\user.gif";
 
     public Game()
     {
-        grid = new Grid(100, 100);
+        grid = new Grid(10, 10);
         userRow = 0;
         userCol = 0;
         msElapsed = 0;
         timesGet = 0;
         timesAvoid = 0;
         updateTitle();
-        grid.setImage(new Location(userRow, 0), "catch.png");
+        grid.setImage(new Location(userRow, 0), bgPic);
     }
     public void play()
     {
