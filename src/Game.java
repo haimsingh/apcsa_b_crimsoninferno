@@ -64,6 +64,9 @@ public class Game
             if(grid.getImage(loc).equals("enemy.gif")){
 
             }
+            if(grid.getImage(loc).equals("kono_dio_da.gif")){
+
+            }
 
 
         }
