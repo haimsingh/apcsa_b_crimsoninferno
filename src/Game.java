@@ -10,7 +10,7 @@ public class Game
 
     public Game()
     {
-        grid = new Grid(10, 10);
+        grid = new Grid(1, 1);
         userRow = 0;
         userCol = 0;
         msElapsed = 0;
@@ -62,6 +62,7 @@ public class Game
     public void handleCollision(Location loc) {
         if(userCol == loc.getCol() && userRow == loc.getRow()){
             if(grid.getImage(loc).equals("enemy.gif")){
+                Grid battle = new Grid(5,5);
 
             }
             if(grid.getImage(loc).equals("kono_dio_da.gif")){
