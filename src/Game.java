@@ -1,6 +1,7 @@
 public class Game
 {
     private Grid grid;
+    private Grid battleField;
     private int userRow;
     private int userCol;
     private int msElapsed;
@@ -60,6 +61,12 @@ public class Game
 //  public void scrollLeft() {
 //
 //  }
+
+    public void attack(){
+        battleField = new Grid(5, 5);
+        battleField.setTitle("Battle");
+    }
+
     public void handleCollision(Location loc) {
         if(userCol == loc.getCol() && userRow == loc.getRow()){
             if(grid.getImage(loc).equals("enemy.gif")){
