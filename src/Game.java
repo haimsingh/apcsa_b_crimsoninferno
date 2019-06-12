@@ -23,6 +23,7 @@ public class Game
         timesAvoid = 0;
         updateTitle();
         grid.setImage(new Location(userRow, userCol), userPic);
+        grid.setImage(new Location(4, 2), enemy);
     }
     public void play()
     {
