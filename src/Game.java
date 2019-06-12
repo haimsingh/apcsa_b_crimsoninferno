@@ -2,24 +2,27 @@ public class Game
 {
     private Grid grid;
     private Grid battleField;
+    private WavPlayer ora;
     private int userRow;
     private int userCol;
     private int msElapsed;
     private int timesGet;
     private int timesAvoid;
-    private String bgPic = "img//NOT_DONE.png";
+    private String bgPic = "img//get.gif";
     private String userPic = "img//fruit-catcher-idle.png";
+    private String enemy = "enemy.gif";
 
     public Game()
     {
         grid = new Grid(20, 20, bgPic);
+        ora = new WavPlayer("ora.wav");
         userRow = 0;
         userCol = 0;
         msElapsed = 0;
         timesGet = 0;
         timesAvoid = 0;
         updateTitle();
-        grid.setImage(new Location(userRow, 0), userPic);
+        grid.setImage(new Location(userRow, userCol), userPic);
     }
     public void play()
     {
@@ -41,16 +44,32 @@ public class Game
 
         switch(key){
             case 38 :
-                userRow--;
+                if(userRow > 0) {
+                    grid.setImage(new Location(userRow, userCol), null);
+                    userRow--;
+                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                }
                 break;
             case 40 :
-                userRow++;
+                if(userRow != grid.getNumRows() - 1) {
+                    grid.setImage(new Location(userRow, userCol), null);
+                    userRow++;
+                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                }
                 break;
             case 37 :
-                userCol--;
+                if(userCol > 0) {
+                    grid.setImage(new Location(userRow, userCol), null);
+                    userCol--;
+                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                }
                 break;
             case 39 :
-                userCol++;
+                if(userCol != grid.getNumCols() - 1) {
+                    grid.setImage(new Location(userRow, userCol), null);
+                    userCol++;
+                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                }
                 break;
         }
     }
@@ -62,19 +81,35 @@ public class Game
 //
 //  }
 
-    public void attack(){
-        battleField = new Grid(5, 5);
-        battleField.setTitle("Battle");
+    public void attack(String foe){
+        battleField = new Grid(5,5,"BattleBackground.png");
+        battleField.setTitle("Player Attack");
+        battleField.setImage(new Location(3,1), "jojo.gif");
+        battleField.setImage(new Location(3,3), enemy);
+        battleField.pause(500);
+        battleField.setImage(new Location(3,1), null);
+        battleField.setImage(new Location(3,2), "jojo.gif");
+        battleField.pause(500);
+        battleField.setImage(new Location(3,3), enemy.substring(0,enemy.length()-4)+"Attack.gif");
+        ora.startSound();
+        battleField.pause(500);
+        battleField.setImage(new Location(3,3), null);
+        battleField.pause(500);
+        battleField.setImage(new Location(3,2), null);
+        battleField.setImage(new Location(3,1), "jojo.gif");
+        battleField.pause(500);
+        battleField.close();
+
     }
 
     public void handleCollision(Location loc) {
         if(userCol == loc.getCol() && userRow == loc.getRow()){
             if(grid.getImage(loc).equals("enemy.gif")){
-                Grid battle = new Grid(5,5);
+                attack("enemy.gif");
 
             }
             if(grid.getImage(loc).equals("kono_dio_da.gif")){
-
+                attack("kono_dio_da.gif");
             }
 
 
