@@ -9,7 +9,7 @@ public class Game
     private int timesGet;
     private int timesAvoid;
     private String bgPic = "img//get.gif";
-    private String userPic = "img//fruit-catcher-idle.png";
+    private String userPic = "get.gif";
     private String enemy = "enemy.gif";
 
     public Game()
@@ -31,6 +31,7 @@ public class Game
         {
             grid.pause(100);
             handleKeyPress();
+            System.out.println(grid.checkLastKeyPressed());
             if (msElapsed % 300 == 0)
             {
 //        scrollLeft();
@@ -48,30 +49,32 @@ public class Game
                 if(userRow > 0) {
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow--;
-                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                    grid.setImage(new Location(userRow, userCol), "get.gif");
                 }
                 break;
             case 40 :
                 if(userRow != grid.getNumRows() - 1) {
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow++;
-                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                    grid.setImage(new Location(userRow, userCol), "get.gif");
                 }
                 break;
             case 37 :
                 if(userCol > 0) {
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol--;
-                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                    grid.setImage(new Location(userRow, userCol), "get.gif");
                 }
                 break;
             case 39 :
                 if(userCol != grid.getNumCols() - 1) {
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol++;
-                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                    grid.setImage(new Location(userRow, userCol), "get.gif");
                 }
                 break;
+            default:
+                System.out.println("Invalid Key pressed");
         }
     }
     //  public void populateRightEdge() {
@@ -139,4 +142,3 @@ public class Game
         test();
     }
 }
-
