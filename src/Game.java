@@ -135,7 +135,8 @@ public class Game
     public static void test()
     {
         Game game = new Game();
-        game.play();
+        game.play(); 
+        
     }
     public static void main(String[] args)
     {
