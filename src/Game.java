@@ -8,7 +8,7 @@ public class Game
     private int msElapsed;
     private int timesGet;
     private int timesAvoid;
-    private String bgPic = "img//get.gif";
+    private String bgPic = "img//NOT_DONE.png";
     private String userPic = "img//fruit-catcher-idle.png";
     private String enemy = "img//enemy.gif";
 
@@ -31,7 +31,7 @@ public class Game
         {
             grid.pause(100);
             handleKeyPress();
-            System.out.println(grid.checkLastKeyPressed());
+//            System.out.println(grid.checkLastKeyPressed());
             if (msElapsed % 300 == 0)
             {
 //        scrollLeft();
@@ -46,6 +46,7 @@ public class Game
 
         switch(key){
             case 38 :
+                System.out.println(38);
                 if(userRow > 0) {
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow--;
@@ -53,6 +54,7 @@ public class Game
                 }
                 break;
             case 40 :
+                System.out.println(40);
                 if(userRow != grid.getNumRows() - 1) {
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow++;
@@ -60,6 +62,7 @@ public class Game
                 }
                 break;
             case 37 :
+                System.out.println(37);
                 if(userCol > 0) {
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol--;
@@ -67,6 +70,7 @@ public class Game
                 }
                 break;
             case 39 :
+                System.out.println(39);
                 if(userCol != grid.getNumCols() - 1) {
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol++;
@@ -74,7 +78,7 @@ public class Game
                 }
                 break;
             default:
-                System.out.println("Invalid Key pressed");
+//                System.out.println("Invalid Key pressed");
         }
     }
     //  public void populateRightEdge() {
@@ -143,4 +147,3 @@ public class Game
         test();
     }
 }
-
