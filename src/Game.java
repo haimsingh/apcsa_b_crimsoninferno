@@ -1,3 +1,5 @@
+
+
 public class Game
 {
     private Grid grid;
@@ -6,27 +8,30 @@ public class Game
     private int userRow;
     private int userCol;
     private int msElapsed;
-    private int timesGet;
-    private int timesAvoid;
+    private boolean wannaStart = false;
     private String bgPic = "img//NOT_DONE.png";
     private String userPic = "img//fruit-catcher-idle.png";
     private String enemy = "img//enemy.gif";
 
     public Game()
     {
+        Grid start = new Grid(6, 6, "img//NOT_DONE.png");
+        start.setTitle("Title Screen");
+        start.setImage(new Location(3, 3), "img//Start.png");
+        start.setImage(new Location(1,3), "img//Title.png");
+
         grid = new Grid(20, 20, bgPic);
         ora = new WavPlayer("ora.wav");
         userRow = 0;
         userCol = 0;
         msElapsed = 0;
-        timesGet = 0;
-        timesAvoid = 0;
         updateTitle();
         grid.setImage(new Location(userRow, userCol), userPic);
         grid.setImage(new Location(4, 2), enemy);
     }
     public void play()
     {
+
         while (!isGameOver())
         {
             grid.pause(100);
@@ -146,4 +151,6 @@ public class Game
     {
         test();
     }
+
+
 }
