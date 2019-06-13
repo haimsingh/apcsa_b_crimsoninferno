@@ -10,7 +10,7 @@ public class Game
     private int timesAvoid;
     private String bgPic = "img//get.gif";
     private String userPic = "img//fruit-catcher-idle.png";
-    private String enemy = "enemy.gif";
+    private String enemy = "img//enemy.gif";
 
     public Game()
     {
@@ -83,15 +83,15 @@ public class Game
 //  }
 
     public void attack(String foe){
-        battleField = new Grid(5,5,"BattleBackground.png");
+        battleField = new Grid(5,5,"BattleField.png");
         battleField.setTitle("Player Attack");
         battleField.setImage(new Location(3,1), "jojo.gif");
-        battleField.setImage(new Location(3,3), enemy);
+        battleField.setImage(new Location(3,3), foe);
         battleField.pause(500);
         battleField.setImage(new Location(3,1), null);
         battleField.setImage(new Location(3,2), "jojo.gif");
         battleField.pause(500);
-        battleField.setImage(new Location(3,3), enemy.substring(0,enemy.length()-4)+"Attack.gif");
+        battleField.setImage(new Location(3,3), foe.substring(0,foe.length()-4)+"Attack.gif");
         ora.startSound();
         battleField.pause(500);
         battleField.setImage(new Location(3,3), null);
@@ -104,9 +104,9 @@ public class Game
     }
 
     public void handleCollision(Location loc) {
-        if(userCol == loc.getCol() && userRow == loc.getRow()){
-            if(grid.getImage(loc).equals("enemy.gif")){
-                attack("enemy.gif");
+        if((userCol == loc.getCol() - 1 || userCol == loc.getCol() + 1) && (userRow == loc.getRow() - 1 || userRow == loc.getRow() + 1)){
+            if(grid.getImage(loc).equals(enemy)){
+                attack(enemy);
 
             }
             if(grid.getImage(loc).equals("kono_dio_da.gif")){
