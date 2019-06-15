@@ -10,7 +10,7 @@ public class Game
     private int msElapsed;
     private boolean wannaStart = false;
     private String bgPic = "img//NOT_DONE.png";
-    private String userPic = "img//fruit-catcher-idle.png";
+    private String userPic = "img//jojo.gif";
     private String enemy = "img//enemy.gif";
 
     public Game()
@@ -22,15 +22,13 @@ public class Game
 
         grid = new Grid(20, 20, bgPic);
         ora = new WavPlayer("ora.wav");
-        userRow = 0;
-        userCol = 0;
+        userRow = 18;
+        userCol = 10;
         msElapsed = 0;
         updateTitle();
         grid.setImage(new Location(userRow, userCol), userPic);
         grid.setImage(new Location(4, 2), enemy);
-    }
-    public void play()
-    {
+
 
         while (!isGameOver())
         {
@@ -60,7 +58,7 @@ public class Game
                     }
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow--;
-                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                    grid.setImage(new Location(userRow, userCol), "img//jojo.gif");
                 }
                 break;
             case 40 :
@@ -72,7 +70,7 @@ public class Game
 
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow++;
-                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                    grid.setImage(new Location(userRow, userCol), "img//jojo.gif");
                 }
                 break;
             case 37 :
@@ -85,7 +83,7 @@ public class Game
                     }
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol--;
-                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                    grid.setImage(new Location(userRow, userCol), "img//jojo.gif");
                 }
                 break;
             case 39 :
@@ -98,7 +96,7 @@ public class Game
                     }
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol++;
-                    grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
+                    grid.setImage(new Location(userRow, userCol), "img//jojo.gif");
                 }
                 break;
             default:
