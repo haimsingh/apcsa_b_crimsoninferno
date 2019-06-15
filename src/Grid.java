@@ -225,6 +225,7 @@ public class Grid extends JComponent implements KeyListener, MouseListener
 		lastLocationClicked = new Location(row, col);
 	}
 
+
 	public void mouseReleased(MouseEvent e)
 	{
 		//ignore

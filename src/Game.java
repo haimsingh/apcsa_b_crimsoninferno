@@ -15,10 +15,10 @@ public class Game
 
     public Game()
     {
-        Grid start = new Grid(6, 6, "img//NOT_DONE.png");
-        start.setTitle("Title Screen");
-        start.setImage(new Location(3, 3), "img//Start.png");
-        start.setImage(new Location(1,3), "img//Title.png");
+       // Grid start = new Grid(6, 6, "img//NOT_DONE.png");
+        // start.setTitle("Title Screen");
+        //start.setImage(new Location(3, 3), "img//Start.png");
+        //start.setImage(new Location(1,3), "img//Title.png");
 
         grid = new Grid(20, 20, bgPic);
         ora = new WavPlayer("ora.wav");
@@ -53,6 +53,11 @@ public class Game
             case 38 :
                 System.out.println(38);
                 if(userRow > 0) {
+                    if(userRow != 0){
+                        if(grid.getImage(new Location(userRow - 1, userCol)).equals(enemy)){
+                            attack(enemy);
+                        }
+                    }
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow--;
                     grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
@@ -61,6 +66,10 @@ public class Game
             case 40 :
                 System.out.println(40);
                 if(userRow != grid.getNumRows() - 1) {
+                        if(grid.getImage(new Location(userRow + 1, userCol)).equals(enemy)){
+                            attack(enemy);
+                        }
+
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow++;
                     grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
@@ -69,6 +78,11 @@ public class Game
             case 37 :
                 System.out.println(37);
                 if(userCol > 0) {
+                    if(userCol != 0){
+                        if(grid.getImage(new Location(userRow, userCol - 1)).equals(enemy)){
+                            attack(enemy);
+                        }
+                    }
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol--;
                     grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
@@ -77,6 +91,11 @@ public class Game
             case 39 :
                 System.out.println(39);
                 if(userCol != grid.getNumCols() - 1) {
+                    if(userCol != grid.getNumCols() - 1){
+                        if(grid.getImage(new Location(userRow, userCol + 1)).equals(enemy)){
+                            attack(enemy);
+                        }
+                    }
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol++;
                     grid.setImage(new Location(userRow, userCol), "img//fruit-catcher-idle.png");
@@ -115,7 +134,7 @@ public class Game
 
     }
 
-    public void handleCollision(Location loc) {
+    /*public void handleCollision(Location loc) {
         if((userCol == loc.getCol() - 1 || userCol == loc.getCol() + 1) && (userRow == loc.getRow() - 1 || userRow == loc.getRow() + 1)){
             if(grid.getImage(loc).equals(enemy)){
                 attack(enemy);
@@ -128,7 +147,7 @@ public class Game
 
         }
 
-    }
+    }*/
     public int getScore()
     {
         return 0;
