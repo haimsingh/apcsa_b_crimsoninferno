@@ -187,8 +187,9 @@ public class Grid extends JComponent implements KeyListener, MouseListener
 		repaint();
 	}
 
-	public void close(){
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	//Credit to our classmate Madison
+	public void close() {
+		frame.dispose();
 	}
 
 	private int getCellSize()

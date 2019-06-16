@@ -59,7 +59,7 @@ public class Game
                     }
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow--;
-                    grid.setImage(new Location(userRow, userCol), "img//jojo.gif");
+                    grid.setImage(new Location(userRow, userCol), userPic);
                 }
                 break;
             case 40 :
@@ -71,7 +71,7 @@ public class Game
 
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow++;
-                    grid.setImage(new Location(userRow, userCol), "img//jojo.gif");
+                    grid.setImage(new Location(userRow, userCol), userPic);
                 }
                 break;
             case 37 :
@@ -84,7 +84,7 @@ public class Game
                     }
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol--;
-                    grid.setImage(new Location(userRow, userCol), "img//jojo.gif");
+                    grid.setImage(new Location(userRow, userCol), userPic);
                 }
                 break;
             case 39 :
@@ -97,7 +97,7 @@ public class Game
                     }
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol++;
-                    grid.setImage(new Location(userRow, userCol), "img//jojo.gif");
+                    grid.setImage(new Location(userRow, userCol), userPic);
                 }
                 break;
             default:
@@ -113,13 +113,13 @@ public class Game
 //  }
 
     public void attack(String foe){
-        battleField = new Grid(5,5,"BattleField.png");
+        battleField = new Grid(5,5,"img//BattleField.png");
         battleField.setTitle("Player Attack");
-        battleField.setImage(new Location(3,1), "jojo.gif");
+        battleField.setImage(new Location(3,1), userPic);
         battleField.setImage(new Location(3,3), foe);
         battleField.pause(500);
         battleField.setImage(new Location(3,1), null);
-        battleField.setImage(new Location(3,2), "jojo.gif");
+        battleField.setImage(new Location(3,2), userPic);
         battleField.pause(500);
         battleField.setImage(new Location(3,3), foe.substring(0,foe.length()-4)+"Attack.gif");
         ora.startSound();
@@ -127,7 +127,7 @@ public class Game
         battleField.setImage(new Location(3,3), null);
         battleField.pause(500);
         battleField.setImage(new Location(3,2), null);
-        battleField.setImage(new Location(3,1), "jojo.gif");
+        battleField.setImage(new Location(3,1), userPic);
         battleField.pause(500);
         battleField.close();
 
