@@ -13,9 +13,8 @@ public class Game
     private String userPic = "img//jojo.gif";
     private String enemy = "img//enemy.gif";
 
-    public Game()
-    {
-       // Grid start = new Grid(6, 6, "img//NOT_DONE.png");
+    public Game() {
+        // Grid start = new Grid(6, 6, "img//NOT_DONE.png");
         // start.setTitle("Title Screen");
         //start.setImage(new Location(3, 3), "img//Start.png");
         //start.setImage(new Location(1,3), "img//Title.png");
@@ -28,7 +27,9 @@ public class Game
         updateTitle();
         grid.setImage(new Location(userRow, userCol), userPic);
         grid.setImage(new Location(4, 2), enemy);
+    }
 
+    public void play() {
 
         while (!isGameOver())
         {
