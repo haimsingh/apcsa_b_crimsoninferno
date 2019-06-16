@@ -147,6 +147,14 @@ public class Game
         }
 
     }*/
+
+    //Credit to Mikera on stack overflow
+    public static boolean equalsWithNulls(String a, String b) {
+        if (a == b) return true;
+        if ((a == null)||(b == null)) return false;
+        return a.equals(b);
+    }
+
     public int getScore()
     {
         return 0;
