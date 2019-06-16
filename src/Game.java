@@ -53,7 +53,7 @@ public class Game
                 System.out.println(38);
                 if(userRow > 0) {
                     if(userRow != 0){
-                        if(grid.getImage(new Location(userRow - 1, userCol)).equals(enemy)){
+                        if(equalsWithNulls(grid.getImage(new Location(userRow - 1, userCol)), enemy)){
                             attack(enemy);
                         }
                     }
@@ -65,7 +65,7 @@ public class Game
             case 40 :
                 System.out.println(40);
                 if(userRow != grid.getNumRows() - 1) {
-                        if(grid.getImage(new Location(userRow + 1, userCol)).equals(enemy)){
+                        if(equalsWithNulls(grid.getImage(new Location(userRow + 1, userCol)), enemy)){
                             attack(enemy);
                         }
 
@@ -78,7 +78,7 @@ public class Game
                 System.out.println(37);
                 if(userCol > 0) {
                     if(userCol != 0){
-                        if(grid.getImage(new Location(userRow, userCol - 1)).equals(enemy)){
+                        if(equalsWithNulls(grid.getImage(new Location(userRow, userCol - 1)), enemy)){
                             attack(enemy);
                         }
                     }
@@ -91,7 +91,7 @@ public class Game
                 System.out.println(39);
                 if(userCol != grid.getNumCols() - 1) {
                     if(userCol != grid.getNumCols() - 1){
-                        if(grid.getImage(new Location(userRow, userCol + 1)).equals(enemy)){
+                        if(equalsWithNulls(grid.getImage(new Location(userRow, userCol + 1)), enemy)){
                             attack(enemy);
                         }
                     }
@@ -150,8 +150,12 @@ public class Game
 
     //Credit to Mikera on stack overflow
     public static boolean equalsWithNulls(String a, String b) {
-        if (a == b) return true;
-        if ((a == null)||(b == null)) return false;
+        if (a == b) {
+            return true;
+        }
+        if ((a == null)||(b == null)) {
+            return false;
+        }
         return a.equals(b);
     }
 
