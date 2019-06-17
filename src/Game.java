@@ -1,5 +1,3 @@
-
-
 public class Game
 {
     private Grid grid;
@@ -9,24 +7,22 @@ public class Game
     private int userCol;
     private int msElapsed;
     private boolean wannaStart = false;
-    private String bgPic = "img//NOT_DONE.png";
+    private String bgPic = "img//bIG_mOOD.png";
     private String userPic = "img//jojo.gif";
     private String enemy = "img//enemy.gif";
 
     public Game() {
-        Grid start = new Grid(5, 5, "img//NOT_DONE.png");
-        start.setTitle("Title Screen");
-        start.setImage(new Location(3, 2), "img//Start.png");
-
-
-        grid = new Grid(20, 20, bgPic);
-        ora = new WavPlayer("ora.wav");
-        userRow = 18;
-        userCol = 10;
-        msElapsed = 0;
-        updateTitle();
-        grid.setImage(new Location(userRow, userCol), userPic);
-        grid.setImage(new Location(4, 2), enemy);
+        titleScreen();
+        if(wannaStart){
+            grid = new Grid(20, 20, bgPic);
+            ora = new WavPlayer("ora.wav");
+            userRow = 18;
+            userCol = 10;
+            msElapsed = 0;
+            updateTitle();
+            grid.setImage(new Location(userRow, userCol), userPic);
+            grid.setImage(new Location(4, 2), enemy);
+        }
     }
 
     public void play() {
@@ -100,6 +96,11 @@ public class Game
                     grid.setImage(new Location(userRow, userCol), userPic);
                 }
                 break;
+
+            case 13 :
+                System.out.println(13);
+                wannaStart = true;
+                break;
             default:
 //                System.out.println("Invalid Key pressed");
         }
@@ -111,6 +112,13 @@ public class Game
 //  public void scrollLeft() {
 //
 //  }
+
+    public void titleScreen(){
+        Grid start = new Grid(5, 5, "img//NOT_DONE.png");
+        start.setTitle("Title Screen");
+        start.setImage(new Location(3, 2), "img//Start.png");
+        handleKeyPress();
+    }
 
     public void attack(String foe){
         battleField = new Grid(5,5,"img//BattleField.png");
