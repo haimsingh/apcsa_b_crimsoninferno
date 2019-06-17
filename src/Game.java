@@ -14,10 +14,10 @@ public class Game
     private String enemy = "img//enemy.gif";
 
     public Game() {
-        // Grid start = new Grid(6, 6, "img//NOT_DONE.png");
-        // start.setTitle("Title Screen");
-        //start.setImage(new Location(3, 3), "img//Start.png");
-        //start.setImage(new Location(1,3), "img//Title.png");
+        Grid start = new Grid(5, 5, "img//NOT_DONE.png");
+        start.setTitle("Title Screen");
+        start.setImage(new Location(3, 2), "img//Start.png");
+
 
         grid = new Grid(20, 20, bgPic);
         ora = new WavPlayer("ora.wav");
