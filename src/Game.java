@@ -13,6 +13,7 @@ public class Game
     private String bgPic = "img//bIG_mOOD.png";
     private String userPic = "img//jojo.gif";
     private String enemy = "img//enemy.gif";
+    private String Dio = "img//kono_dio_da.gif";
 
     public Game() {
         titleScreen();
@@ -25,6 +26,7 @@ public class Game
             updateTitle();
             grid.setImage(new Location(userRow, userCol), userPic);
             grid.setImage(new Location(4, 2), enemy);
+            grid.setImage(new Location(3, 10),Dio);
         }
     }
 
@@ -54,6 +56,9 @@ public class Game
                         if(equalsWithNulls(grid.getImage(new Location(userRow - 1, userCol)), enemy)){
                             attack(enemy);
                         }
+                        if(equalsWithNulls(grid.getImage(new Location(userRow - 1, userCol)), Dio)){
+                            attack(Dio);
+                        }
                     }
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow--;
@@ -66,7 +71,9 @@ public class Game
                     if(equalsWithNulls(grid.getImage(new Location(userRow + 1, userCol)), enemy)){
                         attack(enemy);
                     }
-
+                    if(equalsWithNulls(grid.getImage(new Location(userRow - 1, userCol)), Dio)){
+                        attack(Dio);
+                    }
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow++;
                     grid.setImage(new Location(userRow, userCol), userPic);
@@ -79,6 +86,9 @@ public class Game
                         if(equalsWithNulls(grid.getImage(new Location(userRow, userCol - 1)), enemy)){
                             attack(enemy);
                         }
+                        if(equalsWithNulls(grid.getImage(new Location(userRow - 1, userCol)), Dio)){
+                            attack(Dio);
+                        }
                     }
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol--;
@@ -88,11 +98,13 @@ public class Game
             case 39 :
                 System.out.println(39);
                 if(userCol != grid.getNumCols() - 1) {
-                    if(userCol != grid.getNumCols() - 1){
                         if(equalsWithNulls(grid.getImage(new Location(userRow, userCol + 1)), enemy)){
                             attack(enemy);
                         }
-                    }
+                        if(equalsWithNulls(grid.getImage(new Location(userRow - 1, userCol)), Dio)){
+                            attack(Dio);
+                        }
+
                     grid.setImage(new Location(userRow, userCol), null);
                     userCol++;
                     grid.setImage(new Location(userRow, userCol), userPic);
@@ -119,14 +131,10 @@ public class Game
         Grid start = new Grid(5, 5, "img//NOT_DONE.png");
         start.setTitle("Title Screen");
 //        start.setImage(new Location(3, 2), "img//Start.png");
-        while (wannaStart) {
-            Scanner starting = new Scanner(System.in);
-            String words = starting.nextLine();
-
-            if (words.compareTo("") == 1) {
-                start.close();
-                return;
-            }
+        while (!wannaStart) {
+            start.waitForKeyPress();
+            wannaStart = true;
+            start.close();
         }
     }
 

@@ -378,6 +378,20 @@ public class Grid extends JComponent implements KeyListener, MouseListener
 		return key;
 	}
 
+	//Idea acquired from classmate Madison Velez
+	public void waitForKeyPress() {
+		while (true) {
+			int lastKey = this.checkLastKeyPressed();
+			if (lastKey > -1) {
+				System.out.println(lastKey);
+				return;
+			} else {
+				System.out.print("Nothing Pressed");
+				Grid.pause(100);
+			}
+		}
+	}
+
 	//returns null if no location clicked since last call.
 	public Location checkLastLocationClicked()
 	{
