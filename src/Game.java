@@ -195,7 +195,10 @@ public class Game
     }
 
     public boolean isGameOver() {
-        return false;
+        if(grid.getImage(new Location(3, 10)).equals(Dio)){
+            return false;
+        }
+        return true;
     }
 
     public static void test() {
