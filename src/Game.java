@@ -43,6 +43,7 @@ public class Game
             updateTitle();
             msElapsed += 100;
         }
+        grid.close();
     }
 
     public void handleKeyPress() {
