@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 public class Game
 {
     private Grid grid;
@@ -27,13 +30,11 @@ public class Game
 
     public void play() {
 
-        while (!isGameOver())
-        {
+        while (!isGameOver()) {
             grid.pause(100);
             handleKeyPress();
 //            System.out.println(grid.checkLastKeyPressed());
-            if (msElapsed % 300 == 0)
-            {
+            if (msElapsed % 300 == 0) {
 //        scrollLeft();
 //        populateRightEdge();
             }
@@ -41,6 +42,7 @@ public class Game
             msElapsed += 100;
         }
     }
+
     public void handleKeyPress() {
         int key = grid.checkLastKeyPressed();
 
@@ -61,9 +63,9 @@ public class Game
             case 40 :
                 System.out.println(40);
                 if(userRow != grid.getNumRows() - 1) {
-                        if(equalsWithNulls(grid.getImage(new Location(userRow + 1, userCol)), enemy)){
-                            attack(enemy);
-                        }
+                    if(equalsWithNulls(grid.getImage(new Location(userRow + 1, userCol)), enemy)){
+                        attack(enemy);
+                    }
 
                     grid.setImage(new Location(userRow, userCol), null);
                     userRow++;
@@ -97,10 +99,10 @@ public class Game
                 }
                 break;
 
-            case 13 :
-                System.out.println(13);
-                wannaStart = true;
-                break;
+//            case 13 :
+//                System.out.println(13);
+//                wannaStart = true;
+//                break;
             default:
 //                System.out.println("Invalid Key pressed");
         }
@@ -113,12 +115,21 @@ public class Game
 //
 //  }
 
-    public void titleScreen(){
+    public void titleScreen() {
         Grid start = new Grid(5, 5, "img//NOT_DONE.png");
         start.setTitle("Title Screen");
-        start.setImage(new Location(3, 2), "img//Start.png");
-        handleKeyPress();
+//        start.setImage(new Location(3, 2), "img//Start.png");
+        while (wannaStart) {
+            Scanner starting = new Scanner(System.in);
+            String words = starting.nextLine();
+
+            if (words.compareTo("") == 1) {
+                start.close();
+                return;
+            }
+        }
     }
+
 
     public void attack(String foe){
         battleField = new Grid(5,5,"img//BattleField.png");
@@ -167,26 +178,25 @@ public class Game
         return a.equals(b);
     }
 
-    public int getScore()
-    {
+    public int getScore() {
         return 0;
     }
-    public void updateTitle()
-    {
+
+    public void updateTitle() {
         grid.setTitle("Game:  " + getScore());
     }
-    public boolean isGameOver()
-    {
+
+    public boolean isGameOver() {
         return false;
     }
-    public static void test()
-    {
+
+    public static void test() {
         Game game = new Game();
-        game.play(); 
-        
+        game.play();
+
     }
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         test();
     }
 
